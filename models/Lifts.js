@@ -4,6 +4,8 @@ var Lift = db.sequelize.define('lift', {
   name: {
     type: Sequelize.STRING,
     field: 'name' // Will result in an attribute that is firstName when user facing but first_name in the database
+    unique: true,
+    allownull: false
   },
   muscleGroup: {
     type: Sequelize.STRING
