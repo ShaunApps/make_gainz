@@ -1,9 +1,9 @@
-var db = require('./index.js');
-var Sequelize = require('sequelize');
+const db = require('./index.js');
+const Sequelize = require('sequelize');
 
-var sequelize = db.sequelize;
+const sequelize = db.sequelize;
 
-var Lift = sequelize.define('lift', {
+const Lift = sequelize.define('lift', {
   name: {
     type: Sequelize.STRING,
     field: 'name' // Will result in an attribute that is firstName when user facing but first_name in the database
