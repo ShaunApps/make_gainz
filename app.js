@@ -1,10 +1,15 @@
 const express = require('express')
-const app = express()
+const db = require('sequelize-connect')
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+async function connect() {
+  await db.connect('lifts_scheme', 'root', '')
+}
 
-app.listen(3000, function () {
-  console.log('Appellifts listening on port 3000!')
+(async function () {
+  await connect()
+  const app = express()
+
+  app.listen(3000, function () {
+    console.log('Appellifts listening on port 3000')
+
 })
