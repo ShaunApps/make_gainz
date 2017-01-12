@@ -1,18 +1,23 @@
-const express = require('express')
-const app = express()
-
+const express = require('express');
+const app = express();
+const config = require('./config');
 const mongoose = require('mongoose');
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+const port = process.env.PORT || 3000;
 
-app.listen(3000, function () {
+
+
+app.listen(port, function () {
   console.log('Example app listening on port 3000!')
 })
 
+// test code
 
-mongoose.connect('mongodb://localhost/test');
+// app.get('/', function(req, res) {
+//    res.send("hellow");
+// })
+
+mongoose.connect(config.getDbConnectionString());
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
