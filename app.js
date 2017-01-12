@@ -1,15 +1,21 @@
 const express = require('express')
-const db = require('sequelize-connect')
+const app = express()
 
-async function connect() {
-  await db.connect('lifts_scheme', 'root', '')
-}
+const mongoose = require('mongoose');
 
-(async function () {
-  await connect()
-  const app = express()
-
-  app.listen(3000, function () {
-    console.log('Appellifts listening on port 3000')
-
+app.get('/', function (req, res) {
+  res.send('Hello World!')
 })
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+
+
+mongoose.connect('mongodb://localhost/test');
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("connected")
+});
