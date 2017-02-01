@@ -2,25 +2,20 @@
   "name": "make_gainz",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
     "mongodb": "^2.2.20",
     "mongoose": "^4.7.6",
-    "mysql": "^2.12.0",
-    "pg": "^6.1.2",
-    "pg-hstore": "^2.3.2",
-    "request": "^2.79.0",
-    "sequelize": "^3.28.0",
-    "sequelize-cli": "^2.5.1",
-    "sequelize-connect": "^2.0.0"
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

@@ -1,23 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const exercises = require('./routes/exercises'); //routes are defined here
+const app = express(); //Create the Express app
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use('/api', exercises); //This is our route middleware
 
-module.exports = router;
-
-
-router.get('/', mainControlller.showHome);
-
-
-
-router.route('/exercises').get(function(req, res) {
-
-})
-
-
-app.get('/api/setupExercises', function(req, res) {
-
-
-  Exercises.create(starterExercises, function(err, results) {
-    res.send(results);
-  });
-});
+module.exports = app;

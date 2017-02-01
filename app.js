@@ -3,7 +3,6 @@ const app = express();
 const config = require('./config');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
-const setupController = require('./app/controllers/setupController');
 
 const port = process.env.PORT || 3000;
 
@@ -27,7 +26,6 @@ app.listen(port, function () {
 
 
 mongoose.connect(config.getDbConnectionString());
-setupController(app);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
