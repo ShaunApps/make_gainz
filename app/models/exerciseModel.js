@@ -11,11 +11,11 @@ const exerciseSchema = new Schema({
       required: true
   },
   description: {
-    type: String
-  },
-  video: {
     type: String,
     required: true
+  },
+  video: {
+    type: String
   }
 });
 
