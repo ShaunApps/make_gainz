@@ -70,6 +70,11 @@ router.route('/exercises/:id')
     });
   });
 
+  router.route('/exercises/:muscleGroup')
+    .get(function(req, res) {
+      Exercise.findOne({ 'muscleGroup': ''})
+    })
+
 
 
   module.exports = router;
