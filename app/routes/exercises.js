@@ -70,10 +70,31 @@ router.route('/exercises/:id')
     });
   });
 
-  router.route('/exercises/:muscleGroup')
+  // get exercises by muscleGroup
+  router.route('/exercise/:muscleGroup')
     .get(function(req, res) {
-      Exercise.findOne({ 'muscleGroup': ''})
-    })
+      Exercise.find({ muscleGroup: req.params.muscleGroup }, function(err, exercise) {
+        if (err) {
+          return res.send(err);
+        }
+
+        res.json(exercise)
+      });
+    });
+  // get random exercise in a muscleGroup
+    router.route('/exercise/:muscleGroup/random')
+      .get(function(req, res) {
+        Exercise.find({ muscleGroup: req.params.muscleGroup }, function(err, exercise) {
+          if (err) {
+            return res.send(err);
+          }
+          // var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          const rand_exercise = exercise[Math.floor(Math.random() * exercise.length)]
+
+          res.json(rand_exercise)
+        });
+      });
+
 
 
 
