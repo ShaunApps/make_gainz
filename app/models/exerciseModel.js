@@ -17,7 +17,7 @@ const exerciseSchema = new Schema({
   video: {
     type: String
   }
-});
+}, { collection : 'exercise' } );
 
 
 const Exercises = mongoose.model('Exercises', exerciseSchema);
